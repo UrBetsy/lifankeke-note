@@ -30,7 +30,7 @@ function addTwo(s) {
     return s + 2;
 }
 
-const handleDeal = compose3(toMath, addTwo);
+const handleDeal = compose3(toMath, toFloor, addTwo);
 const res = handleDeal('3.412');
 
 console.log('结果是', res);

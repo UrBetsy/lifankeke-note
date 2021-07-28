@@ -4,6 +4,7 @@ module.exports = {
     head: [
         ['link', { rel: 'shortcut icon', href: 'https://static.yximgs.com/udata/pkg/ks-ad-fe/docs.66937e54.min.png' }],
     ],
+    base: "/lifankeke-note/",
     themeConfig: {
         lastUpdated: '最近更新',
         editLinks: true,
@@ -26,8 +27,6 @@ module.exports = {
                 ]
             },
         ],
-        // repo: 'https://git.corp.kuaishou.com/ks-frontend/fe-docs',
-        // repoLabel: '查看源码',
         docsDir: 'docs',
         editLinks: true,
     },
