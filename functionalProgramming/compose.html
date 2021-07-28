@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>组合函数 | LIFANKEKE</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="shortcut icon" href="https://static.yximgs.com/udata/pkg/ks-ad-fe/docs.66937e54.min.png">
+    <meta name="description" content="just do it">
+    
+    <link rel="preload" href="/lifankeke-note/assets/css/0.styles.d9c0fb49.css" as="style"><link rel="preload" href="/lifankeke-note/assets/js/app.cbf768c4.js" as="script"><link rel="preload" href="/lifankeke-note/assets/js/2.0a7affb3.js" as="script"><link rel="preload" href="/lifankeke-note/assets/js/8.cc7eb864.js" as="script"><link rel="prefetch" href="/lifankeke-note/assets/js/3.4c01fb59.js"><link rel="prefetch" href="/lifankeke-note/assets/js/4.6cdd1aa1.js"><link rel="prefetch" href="/lifankeke-note/assets/js/5.fe553d6b.js"><link rel="prefetch" href="/lifankeke-note/assets/js/6.744a911e.js"><link rel="prefetch" href="/lifankeke-note/assets/js/7.d1561a0a.js">
+    <link rel="stylesheet" href="/lifankeke-note/assets/css/0.styles.d9c0fb49.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/lifankeke-note/" class="home-link router-link-active"><!----> <span class="site-name">LIFANKEKE</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/lifankeke-note/guide/start.html" class="nav-link">
+  技术学习
+</a></div><div class="nav-item"><a href="/lifankeke-note/guide/indexes.html" class="nav-link">
+  采坑记录
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/lifankeke-note/guide/start.html" class="nav-link">
+  技术学习
+</a></div><div class="nav-item"><a href="/lifankeke-note/guide/indexes.html" class="nav-link">
+  采坑记录
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>函数式编程入门</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/lifankeke-note/functionalProgramming/compose.html" aria-current="page" class="active sidebar-link">组合函数</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="组合函数"><a href="#组合函数" class="header-anchor">#</a> 组合函数</h1> <h3 id="组合函数是什么极其好处"><a href="#组合函数是什么极其好处" class="header-anchor">#</a> 组合函数是什么极其好处：</h3> <h6 id="组合函数将负责不同功能的函数组合起来-完成一个系列的功能"><a href="#组合函数将负责不同功能的函数组合起来-完成一个系列的功能" class="header-anchor">#</a> 组合函数将负责不同功能的函数组合起来，完成一个系列的功能；</h6> <h6 id="其好处-负责不同功能的函数式相互解耦没有依赖"><a href="#其好处-负责不同功能的函数式相互解耦没有依赖" class="header-anchor">#</a> 其好处，负责不同功能的函数式相互解耦没有依赖</h6> <hr> <h3 id="组合函数的实现"><a href="#组合函数的实现" class="header-anchor">#</a> 组合函数的实现：</h3> <div class="language-js extra-class"><pre class="language-js"><code>
+<span class="token comment">// 最简单容易理解的，组合两个函数的情况</span>
+<span class="token keyword">var</span> <span class="token function-variable function">compose1</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">f<span class="token punctuation">,</span>g</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token function">g</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">//写简单一点</span>
+<span class="token keyword">const</span> <span class="token function-variable function">compose2</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">f<span class="token punctuation">,</span>g</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>arg</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token function">g</span><span class="token punctuation">(</span><span class="token operator">...</span>arg<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>
+<span class="token comment">//组合函数肯定不止两个函数</span>
+<span class="token keyword">const</span> <span class="token function-variable function">compose3</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>fns</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 传入的参数，放入输入中就是fns</span>
+    <span class="token keyword">return</span> fns<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">f<span class="token punctuation">,</span> g</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre></div><h3 id="一个例子"><a href="#一个例子" class="header-anchor">#</a> 一个例子</h3> <div class="language-js extra-class"><pre class="language-js"><code>
+<span class="token keyword">function</span> <span class="token function">toMath</span><span class="token punctuation">(</span><span class="token parameter">s</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">Number</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">toFloor</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">addTwo</span><span class="token punctuation">(</span><span class="token parameter">s</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> s <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> handleDeal <span class="token operator">=</span> <span class="token function">compose3</span><span class="token punctuation">(</span>toMath<span class="token punctuation">,</span> toFloor<span class="token punctuation">,</span> addTwo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token function">handleDeal</span><span class="token punctuation">(</span><span class="token string">'3.412'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'结果是'</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 5.412</span>
+
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最近更新:</span> <span class="time">7/28/2021, 7:10:18 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/lifankeke-note/assets/js/app.cbf768c4.js" defer></script><script src="/lifankeke-note/assets/js/2.0a7affb3.js" defer></script><script src="/lifankeke-note/assets/js/8.cc7eb864.js" defer></script>
+  </body>
+</html>
