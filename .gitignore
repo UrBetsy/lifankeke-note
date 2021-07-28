@@ -1,0 +1,42 @@
+# Dependencies
+node_modules
+
+# Cache
+.npm
+.eslintcache
+.cache
+
+# Thumbnails
+._*
+
+# Compress
+.tgz
+.zip
+.gz
+.tar
+.7z
+.iso
+
+# IDE
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+.prettierrc.js
+
+# OSX
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Output
+dist
+.history/
+
+.dockerignore
+commit.sh
+run-docker.sh
